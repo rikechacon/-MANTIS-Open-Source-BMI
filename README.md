@@ -40,6 +40,7 @@ cd MANTIS-Open-Source-BMI/simulation
 
 # Run the physics engine
 python marmottant_bubble_dynamics.py
+```
 
 🤝 Roadmap & Collaboration
 We are actively seeking collaborators for the Phase II (Wet-Lab Validation):
