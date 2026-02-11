@@ -1,6 +1,9 @@
 # MANTIS: Molecular-Acoustic Neural Transduction Interface System
 
 [![DOI](https://img.shields.io/badge/DOI-10.21203%2Frs.3.rs--8670918%2Fv1-blue)](https://doi.org/10.21203/rs.3.rs-8670918/v1)
+> **Note on Hardware Specs:** > The original preprint (v1) describes a theoretical 1024-element system. 
+> This repository and the currently submitted manuscript implement the **optimized 128-element architecture** for immediate hardware feasibility. 
+> The simulation code provided here corresponds to the 128-element configuration.
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Status: Prototype](https://img.shields.io/badge/Status-Research%20Prototype-orange.svg)]()
 
