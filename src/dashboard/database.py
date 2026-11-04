@@ -178,10 +178,14 @@ def init_db():
     Base.metadata.create_all(bind=engine)
 
 def get_db():
-    """Obtiene una sesión de base de datos"""
+    """Obtiene una sesión de base de datos con manejo de errores"""
     db = SessionLocal()
     try:
         yield db
+        db.commit()
+    except Exception:
+        db.rollback()
+        raise
     finally:
         db.close()
 
