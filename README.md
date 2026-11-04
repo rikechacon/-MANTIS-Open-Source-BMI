@@ -62,6 +62,15 @@ python marmottant_bubble_dynamics.py
 ### v1.0 (Enero 2026)
 - Concepto teórico inicial (1024 elementos)
 - DOI: 10.21203/rs.3.rs-8670918/v1
+
+-    ## Latest Release
+   
+   📦 **[MANTIS v1.2.0 (Pre-release)](https://github.com/rikechacon/-MANTIS-Open-Source-BMI/releases/tag/v1.2.0)**
+   
+   Includes:
+   - Paper (PDF)
+   - Scientific Poster (PDF)
+   - Experimental Dashboard (ZIP)
 🤝 Roadmap & Collaboration
 We are actively seeking collaborators for the Phase II (Wet-Lab Validation):
 
