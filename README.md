@@ -44,7 +44,24 @@ cd MANTIS-Open-Source-BMI/simulation
 # Run the physics engine
 python marmottant_bubble_dynamics.py
 ```
+## 📋 Changelog
 
+### v1.2 (Noviembre 2026) - Current
+- **Hipótesis conservadoras**: Backscatter armónico marcado como hipótesis no demostrada
+- **Eliminación de valores sin fuente**: Coeficientes η_s, η_c ahora son parámetros a medir
+- **Aplicación clínica**: Propuesta para Parkinson (aDBS no invasivo)
+- **Separación de evidencia**: Tabla explícita modalidades establecidas vs objetivos de diseño
+- **Criterios de falsación**: Lista de 4 criterios para rechazar la hipótesis
+- **Dashboard de trazabilidad**: Sistema Python/Streamlit para registro experimental
+
+### v1.1 (Febrero 2026)
+- Optimización a arquitectura de 128 elementos
+- Corrección de aberración craneal implementada
+- Protocolo de seguridad térmica y cavitación
+
+### v1.0 (Enero 2026)
+- Concepto teórico inicial (1024 elementos)
+- DOI: 10.21203/rs.3.rs-8670918/v1
 🤝 Roadmap & Collaboration
 We are actively seeking collaborators for the Phase II (Wet-Lab Validation):
 
