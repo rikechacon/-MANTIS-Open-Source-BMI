@@ -224,32 +224,40 @@ def pagina_registro_experimento(db: Session):
         
         with col2:
             lotes = db.query(LoteMNT).filter(LoteMNT.estado != "descartado").all()
-            lote_options = {f"{l.codigo} ({l.estado})": l.id for l in lotes}
-            lote_seleccionado = st.selectbox("Lote MNT", list(lote_options.keys()))
-            lote_mnt_id = lote_options[lote_seleccionado] if lote_seleccionado else None
+            if lotes:
+                lote_options = {f"{l.codigo} ({l.estado})": l.id for l in lotes}
+                lote_seleccionado = st.selectbox("Lote MNT", list(lote_options.keys()))
+                lote_mnt_id = lote_options[lote_seleccionado] if lote_seleccionado else None
+            else:
+                st.warning("⚠️ No hay lotes MNT disponibles. Primero crea un lote en 'Gestión Lotes MNT'")
+                lote_mnt_id = None
             
             exito = st.checkbox("¿Experimento exitoso?")
             
+            # Inicializar variables
+            correlacion_r = None
+            snr_db = None
+            latencia_ms = None
+            
+            # Mostrar campos de métricas solo si es exitoso
             if exito:
-                correlacion_r = st.number_input("Correlación r (vs MEA)", min_value=0.0, max_value=1.0, step=0.01)
-                snr_db = st.number_input("SNR (dB)", min_value=0.0, step=0.1)
-                latencia_ms = st.number_input("Latencia (ms)", min_value=0.0, step=1.0)
-            else:
-                correlacion_r = None
-                snr_db = None
-                latencia_ms = None
+                st.markdown("### Métricas del Experimento")
+                col3, col4 = st.columns(2)
+                with col3:
+                    correlacion_r = st.number_input("Correlación r (vs MEA)", min_value=0.0, max_value=1.0, step=0.01, value=0.80)
+                    snr_db = st.number_input("SNR (dB)", min_value=0.0, step=0.1, value=10.0)
+                with col4:
+                    latencia_ms = st.number_input("Latencia (ms)", min_value=0.0, step=1.0, value=40.0)
             
             incidente = st.checkbox("¿Hubo incidente?")
+            descripcion_incidente = None
             if incidente:
                 descripcion_incidente = st.text_area("Descripción del incidente")
-            else:
-                descripcion_incidente = None
             
             desviacion = st.checkbox("¿Desviación del protocolo?")
+            descripcion_desviacion = None
             if desviacion:
                 descripcion_desviacion = st.text_area("Descripción de la desviación")
-            else:
-                descripcion_desviacion = None
             
             notas = st.text_area("Notas adicionales")
         
