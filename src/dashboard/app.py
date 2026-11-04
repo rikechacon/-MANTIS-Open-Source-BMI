@@ -77,11 +77,14 @@ st.markdown("""
 def get_db_session():
     return SessionLocal()
 
-def login(username: str, password: str, db: Session) -> bool:
+def login(username: str, password: str, db: Session) -> Optional[Usuario]:
     """Autentica un usuario"""
-    usuario = db.query(Usuario).filter(Usuario.nombre == username).first()
-    if usuario and verify_password(password, usuario.password_hash):
-        return usuario
+    try:
+        usuario = db.query(Usuario).filter(Usuario.nombre == username).first()
+        if usuario and verify_password(password, usuario.password_hash):
+            return usuario
+    except Exception:
+        db.rollback()
     return None
 
 def logout():
